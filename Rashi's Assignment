@@ -1,5 +1,5 @@
 # This is assignment for coursera week 3
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(x = matrix()) {   #creates a list containing a function to set and get value of matrix and that of its inverse
 +   inv <- NULL
 +   set <- function(y) {
 +     x <<- y
@@ -13,6 +13,8 @@ makeCacheMatrix <- function(x = matrix()) {
 +        setInverse = setInverse,
 +        getInverse = getInverse)
 + }
+#this returns the inverse of matrix,checks if inverse has already been computed ,if so it gets result and skips computation
+#if not then computes inverse,sets value in cache via set inverse  it assumes matrixis always invertible
 > cacheSolve <- function(x, ...) {
 +   ## Return a matrix that is the inverse of 'x'
 +   inv <- x$getInverse()
@@ -25,6 +27,7 @@ makeCacheMatrix <- function(x = matrix()) {
 +   x$setInverse(inv)
 +   inv
 + }
+##sample test
 > my_matrix <- makeCacheMatrix(matrix(1:4, 2, 2))
 > my_matrix$get()
      [,1] [,2]
